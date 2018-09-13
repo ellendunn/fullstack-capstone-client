@@ -1,0 +1,16 @@
+nav {
+	background-color: gray;
+	border: 1px black solid;
+	display: inline-block;
+	text-align: left;
+	position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  font-size: 16px
+}
+
+nav button {
+	float: right;
+}
