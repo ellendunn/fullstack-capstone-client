@@ -7,11 +7,12 @@ import RegistrationPage from './registration-page'
 import Dashboard from './dashboard'
 
 export class App extends React.Component {
+
 	render() {
 		return(
 			<div className="app">
 				<NavBar />
-				<Route exact path="/" component={LandingPage} />
+				<Dashboard />
 			</div>
 			);
 	}
@@ -19,6 +20,7 @@ export class App extends React.Component {
 
 export default App
 
+
 // <Route exact path="/" component={LandingPage} />
 // <Route exact path="/dashboard" component={Dashboard} />
-// <Route exact path="/register" component={RegistrationForm} />
+// <Route exact path="/register" component={RegistrationPage} />

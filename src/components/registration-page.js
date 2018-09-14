@@ -1,9 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Link, Redirect} from 'react-router-dom';
 import RegistrationForm from './registration-form';
 
-export default class RegistrationPage extends React.Component {
-  render() {
+export function RegistrationPage(props) {
+
+  if (props.loggedIn) {
+    return <Redirect to="/dashboard" />
+  }
     return(
       <div className="registration">
         <header>
@@ -13,5 +17,10 @@ export default class RegistrationPage extends React.Component {
         <Link to="/">Log In</Link>
       </div>
     )
-  }
 }
+
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(RegistrationPage);

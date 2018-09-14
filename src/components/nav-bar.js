@@ -1,10 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux'
 import {clearAuth} from '../actions/auth'
 import {clearAuthToken} from '../local-storage'
 
 import './nav-bar.css'
 
-export default class NavBar extends React.Component {
+export class NavBar extends React.Component {
   logOut() {
     this.props.dispatch(clearAuth())
     clearAuthToken()
@@ -24,7 +25,11 @@ export default class NavBar extends React.Component {
         {button}
       </nav>
     )
-
   }
-
 }
+
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(NavBar)

@@ -1,0 +1,22 @@
+.kitchen {
+  /* display: inline-block; */
+}
+
+.food-container {
+  display: inline-block;
+  width: 50%
+}
+
+ul {
+  list-style: none;
+  text-align: left
+}
+
+ul button {
+  margin: 10px;
+  /* float: right */
+}
+
+li {
+  border: 1px black solid
+}
