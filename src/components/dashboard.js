@@ -1,7 +1,7 @@
 import React from 'react';
-import {fetchProtectedData} from '../actions/protected-data'
-import {connect} from 'react-redux'
-import RequiresLogin from "./requires-login"
+import {fetchProtectedData} from '../actions/protected-data';
+import {connect} from 'react-redux';
+import RequiresLogin from './requires-login';
 import Kitchen from './kitchen';
 
 export class Dashboard extends React.Component {
@@ -12,7 +12,7 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.props.namename} Kitchen & Pantry</h1>
+        <h1>{this.props.username} Kitchen & Pantry</h1>
         <Kitchen />
       </div>
     )
@@ -26,7 +26,7 @@ const mapStateToProps = state => {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
     protectedData: state.protectedData.data
-  }
-}
+  };
+};
 
 export default RequiresLogin()(connect(mapStateToProps)(Dashboard))

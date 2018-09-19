@@ -55,11 +55,9 @@ export const login = (username, password) => dispatch => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(({authToken}) => {
-          console.log(authToken)
-          return storeAuthInfo(authToken, dispatch)
-        })
+        .then(({authToken}) => storeAuthInfo(authToken, dispatch))
         .catch(err => {
+          console.log(err)
           const {code} = err;
           const message =
             code === 401
