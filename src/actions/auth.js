@@ -55,13 +55,16 @@ export const login = (username, password) => dispatch => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+        .then(({authToken}) => {
+          console.log(authToken)
+          return storeAuthInfo(authToken, dispatch)
+        })
         .catch(err => {
           const {code} = err;
           const message =
             code === 401
               ? 'Incorrect username or password'
-              : 'Unable to login, please try again.'
+              : 'Unable to login, please try again.';
           dispatch(authError(err));
           return Promise.reject(
             new SubmissionError({

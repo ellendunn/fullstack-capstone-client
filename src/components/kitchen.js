@@ -20,12 +20,12 @@ export class Kitchen extends React.Component {
       <div>
         <div>
           <h3>Select items in your fridge and pantry to find recipes</h3>
-          {this.props.searchItems}
+          <p>{this.props.searchItems}</p>
           <button type="submit">What can I cook?</button>
         </div>
         <div className="kitchen">
-          <FoodContainer name="Fridge" items={this.props.items}/>
-          <FoodContainer name="Pantry" items={this.props.items}/>
+          <FoodContainer name="Fridge" items={this.props.fridge}/>
+          <FoodContainer name="Pantry" items={this.props.pantry}/>
         </div>
       </div>
     )
@@ -33,7 +33,9 @@ export class Kitchen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  searchItems: state.searchItems
+  searchItems: state.app.searchItems,
+  fridge: state.app.fridge,
+  pantry: state.app.pantry
 })
 
 export default connect (mapStateToProps)(Kitchen)
