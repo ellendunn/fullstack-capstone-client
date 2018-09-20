@@ -8,7 +8,8 @@ import {connect} from 'react-redux';
 
 export class SelectButton extends React.Component {
   state= {
-    isSelected: true
+    isSelected: true,
+    buttonColor: 'blue'
   }
 
   handleClick(foodItem) {
@@ -17,6 +18,7 @@ export class SelectButton extends React.Component {
     }));
 
     if (this.state.isSelected === true) {
+      this.setState({buttonColor: 'purple'})
       return this.props.dispatch(addItemToSearch(foodItem));
     } else if (this.state.isSelected === false) {
       return this.props.dispatch(removeItemFromSearch(foodItem))
@@ -26,7 +28,9 @@ export class SelectButton extends React.Component {
 
   render() {
     return (
-      <button onClick={() => this.handleClick(this.props.name)}>
+      <button
+      color={this.state.buttonColor}
+      onClick={() => this.handleClick(this.props.name)}>
       Select
       </button>
     )

@@ -2,12 +2,12 @@ import React from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-
 import LoginForm from './login-form'
 
 export function LandingPage(props) {
+  // console.log(props)
 
-  if(props.loggedIn) {
+  if (props.loggedIn) {
     return <Redirect to="/dashboard" />
   }
 
@@ -20,12 +20,11 @@ export function LandingPage(props) {
       <LoginForm />
       <Link to="/register">Register</Link>
     </div>
-
-  )
+  );
 }
 
 const mapStateToProps = state => ({
-  logedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null
 })
 
 export default connect(mapStateToProps)(LandingPage)

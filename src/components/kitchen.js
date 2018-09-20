@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom';
+
 import FoodContainer from './food-container';
+import {searchRecipesByIngredients} from '../actions/recipes-api'
 
 import './kitchen.css'
 
@@ -9,6 +11,10 @@ export class Kitchen extends React.Component {
   state = {
     submitted: false,
     loading: false
+  }
+
+  submitSearch(items) {
+    this.props.dispatch(searchRecipesByIngredients(items))
   }
 
   render() {
@@ -21,7 +27,11 @@ export class Kitchen extends React.Component {
         <div>
           <h3>Select items in your fridge and pantry to find recipes</h3>
           <p>{this.props.searchItems}</p>
-          <button type="submit">What can I cook?</button>
+          <button
+          onClick={() => this.submitSearch(this.props.searchItems)}
+          type="submit">
+          What can I cook?
+          </button>
         </div>
         <div className="kitchen">
           <FoodContainer name="Fridge" items={this.props.fridge}/>

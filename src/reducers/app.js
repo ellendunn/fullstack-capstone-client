@@ -1,5 +1,5 @@
 import {
-  ADD_FOOD_TO_CONTAINER,
+  ADD_FOOD_SUCCESS,
   DELETE_FOOD_FROM_CONTAINER,
   ADD_ITEM_TO_SEARCH,
   REMOVE_ITEM_FROM_SEARCH
@@ -16,8 +16,7 @@ const initialState = {
 }
 
 export default function reducer(state = initialState, action) {
-    if (action.type === ADD_FOOD_TO_CONTAINER) {
-      console.log(action)
+    if (action.type === ADD_FOOD_SUCCESS) {
       const container = action.container.toLowerCase();
       return Object.assign({}, state, {
         [container]: [...state[container], action.newItem]
@@ -31,7 +30,6 @@ export default function reducer(state = initialState, action) {
       })
     }
     else if (action.type === ADD_ITEM_TO_SEARCH) {
-      console.log(action.searchItem, state)
       return Object.assign({}, state, {
         searchItems: [...state.searchItems, action.searchItem]
       })

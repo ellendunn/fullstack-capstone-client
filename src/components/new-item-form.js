@@ -11,8 +11,7 @@ export class NewItemForm extends React.Component{
   onSubmit(item) {
     const [key] = Object.entries(item)
     const container = key[0];
-    const newItem = key[1]
-    // this.setState({value: ''})
+    const newItem = key[1];
     return this.props.dispatch(addFoodToContainer(container, newItem))
   }
 
