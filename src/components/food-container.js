@@ -9,19 +9,15 @@ import './food-container.css'
 export class FoodContainer extends React.Component {
 
   deleteItem(item) {
-    console.log(item);
-    const [key] = Object.entries(item);
-    const container = this.props.name;
-    const itemToDelete = key[1]
-    return this.props.dispatch(deleteFoodFromContainer(container, itemToDelete))
+    return this.props.dispatch(deleteFoodFromContainer(item))
   }
 
   render() {
     const items = this.props.items.map((item, index) => (
-        <li key={index}>
-          {item}
-          <SelectButton name={item} />
-          <button onClick={() => this.deleteItem({item})}>Delete</button>
+        <li key={item.id}>
+          {item.food}
+          <SelectButton name={item.food} />
+          <button onClick={() => this.deleteItem(item)}>Delete</button>
         </li>
       ))
 

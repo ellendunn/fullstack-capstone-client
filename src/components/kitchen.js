@@ -14,11 +14,14 @@ export class Kitchen extends React.Component {
   }
 
   submitSearch(items) {
-    this.props.dispatch(searchRecipesByIngredients(items))
+    console.log(items)
+    this.setState(state => ({submitted: true}));
+    // this.props.dispatch(searchRecipesByIngredients(items))
   }
 
   render() {
     if (this.state.submitted) {
+      console.log(this.state)
       return <Redirect to="/recipes" />
     }
 

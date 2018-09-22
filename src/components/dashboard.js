@@ -1,14 +1,17 @@
 import React from 'react';
+// import {Route, withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+
 import {fetchProtectedData} from '../actions/protected-data';
 import {fetchFoodItems} from '../actions/app'
-import {connect} from 'react-redux';
 import RequiresLogin from './requires-login';
 import Kitchen from './kitchen';
+// import RecipesResultsPage from './recipes-results-page'
 
 export class Dashboard extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchProtectedData())
-    this.props.dispatch(fetchFoodItems())
+    this.props.dispatch(fetchFoodItems());
+    this.props.dispatch(fetchProtectedData());
   }
 
   render() {
@@ -19,7 +22,6 @@ export class Dashboard extends React.Component {
       </div>
     )
   }
-
 }
 
 const mapStateToProps = state => {

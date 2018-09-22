@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 
 export class SelectButton extends React.Component {
-  state= {
+  state = {
     isSelected: true,
     buttonColor: 'blue'
   }

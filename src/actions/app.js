@@ -3,10 +3,9 @@ import {normalizeResponseErrors} from './utils';
 import {loadAuthToken} from '../local-storage';
 
 export const ADD_FOOD_SUCCESS = 'ADD_FOOD_SUCCESS';
-export const addFoodSuccess= (container, newItem) => ({
+export const addFoodSuccess= (foodItem) => ({
   type: ADD_FOOD_SUCCESS,
-  container,
-  newItem
+  foodItem
 });
 
 export const addFoodToContainer = (oldContainer, food) => dispatch => {
@@ -25,12 +24,18 @@ export const addFoodToContainer = (oldContainer, food) => dispatch => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(res => dispatch(addFoodSuccess(res.container, res.food)))
+    .then(res => dispatch(addFoodSuccess(res)))
     .catch(err => console.log(err))
 }
 
+export const FETCH_FOOD_ITEMS_SUCCESS = 'FETCH_FOOD_ITEMS_SUCCESS';
+export const fetchFoodItemsSuccess = (foodItems) => ({
+  type: FETCH_FOOD_ITEMS_SUCCESS,
+  foodItems
+})
+
 export const fetchFoodItems = () => (dispatch, getState) => {
-  const authToken = getState().auth.authToken;
+  const authToken = loadAuthToken();
   return fetch(`${API_BASE_URL}/food-items`, {
     method: 'GET',
     headers: {
@@ -40,16 +45,30 @@ export const fetchFoodItems = () => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.log(err))
+  .then(foods => dispatch(fetchFoodItemsSuccess(foods)))
+  .catch(err => console.error(err))
 }
 
-export const DELETE_FOOD_FROM_CONTAINER = 'DELETE_FOOD_FROM_CONTAINER';
-export const deleteFoodFromContainer = (container, itemToDelete) => ({
-  type: DELETE_FOOD_FROM_CONTAINER,
-  container,
-  itemToDelete
+export const DELETE_FOOD_SUCCESS = 'DELETE_FOOD_SUCCESS';
+export const deleteFoodSuccess = (food) => ({
+  type: DELETE_FOOD_SUCCESS,
+  food
 })
+
+export const deleteFoodFromContainer = (food) => dispatch => {
+  const authToken = loadAuthToken();
+  return fetch(`${API_BASE_URL}/food-items/${food.id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(() => fetchFoodItemsSuccess())
+  .then((id) => dispatch(deleteFoodSuccess(food)))
+  .catch(err => console.error(err))
+}
 
 export const ADD_ITEM_TO_SEARCH = 'ADD_ITEM_TO_SEARCH';
 export const addItemToSearch = (searchItem) => ({
