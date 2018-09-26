@@ -1,22 +1,37 @@
 import React from 'react';
-// import {Route, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {fetchProtectedData} from '../actions/protected-data';
-import {fetchFoodItems} from '../actions/app'
+import {
+  fetchFoodItems,
+  fetchFoodItemsSuccess
+} from '../actions/app'
 import RequiresLogin from './requires-login';
 import Kitchen from './kitchen';
-// import RecipesResultsPage from './recipes-results-page'
+
+import './dashboard.css'
 
 export class Dashboard extends React.Component {
+
   componentDidMount() {
-    this.props.dispatch(fetchFoodItems());
-    this.props.dispatch(fetchProtectedData());
+    // if (this.props.username) {
+      this.props.dispatch(fetchProtectedData())
+      .then(() => {
+        if (this.props.fridge.length === 0 && this.props.pantry.length === 0) {
+          console.log(this.props.fridge, this.props.pantry)
+          this.props.dispatch(fetchFoodItems());
+        }
+        else {
+          let foodItems = [];
+          this.props.dispatch(fetchFoodItemsSuccess(foodItems))
+        }
+      }
+    )
   }
 
   render() {
     return (
-      <div>
+      <div className="dashboard" >
         <h1>{this.props.name}s Kitchen & Pantry</h1>
         <Kitchen />
       </div>
@@ -29,7 +44,9 @@ const mapStateToProps = state => {
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
-    protectedData: state.protectedData.data
+    protectedData: state.protectedData.data,
+    fridge: state.app.fridge,
+    pantry: state.app.pantry
   };
 };
 

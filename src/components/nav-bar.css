@@ -1,4 +1,4 @@
-nav {
+.nav-bar {
 	background-color: gray;
 	border: 1px black solid;
 	display: inline-block;
@@ -8,7 +8,8 @@ nav {
   left: 0;
   right: 0;
   z-index: 10;
-  font-size: 16px
+  font-size: 14px;
+	padding: 10px;
 }
 
 nav button {

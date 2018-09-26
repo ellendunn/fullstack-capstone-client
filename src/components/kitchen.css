@@ -4,7 +4,17 @@
 
 .food-container {
   display: inline-block;
-  width: 50%
+  width: 50%;
+  border: 1px black solid;
+  vertical-align: top;
+}
+
+.search-items {
+  display: inline-block;
+}
+
+.search-term {
+  display: inline-block
 }
 
 ul {
@@ -14,7 +24,6 @@ ul {
 
 ul button {
   margin: 10px;
-  /* float: right */
 }
 
 li {

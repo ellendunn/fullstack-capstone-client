@@ -3,6 +3,12 @@ import {loadAuthToken} from '../local-storage'
 
 import {API_BASE_URL} from '../config';
 
+
+export const FETCH_REQUEST = 'FETCH_REQUEST';
+export const fetchRequest = () => ({
+  type: FETCH_REQUEST
+})
+
 export const SEARCH_RECIPES_SUCCESS = 'SEARCH_RECIPES_SUCCESS';
 export const searchRecipesSuccess = (recipes) => ({
   type: SEARCH_RECIPES_SUCCESS,
@@ -10,6 +16,7 @@ export const searchRecipesSuccess = (recipes) => ({
 })
 
 export const searchRecipesByIngredients = (ingredients) => dispatch => {
+  dispatch(fetchRequest())
   const authToken = loadAuthToken()
   let ingredients = ['spinach', 'tomato']
   return fetch(`${API_BASE_URL}/recipes`, {
@@ -25,7 +32,22 @@ export const searchRecipesByIngredients = (ingredients) => dispatch => {
   .then(recipes => dispatch(searchRecipesSuccess(recipes)))
 }
 
+
+export const SELECT_RECIPE = 'SELECT_RECIPE';
+export const selectRecipe = (id) => ({
+  type: SELECT_RECIPE,
+  id
+})
+
+export const FETCH_RECIPE_SUCCESS = 'FETCH_RECIPE_SUCCESS'
+export const fetchRecipeSuccess = (recipe) => ({
+  type: FETCH_RECIPE_SUCCESS,
+  recipe
+})
+
+export const FETCH_RECIPE_BY_ID = 'FETCH_RECIPE_BY_ID';
 export const fetchRecipeById = (id) => dispatch => {
+  dispatch(fetchRequest())
   const authToken = loadAuthToken();
   return fetch(`${API_BASE_URL}/recipes/${id}`, {
       method: 'GET',
@@ -37,5 +59,5 @@ export const fetchRecipeById = (id) => dispatch => {
     })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(recipe => console.log(recipe))
+  .then(recipe => dispatch(fetchRecipeSuccess(recipe)))
 }

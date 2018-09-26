@@ -3,13 +3,13 @@ import {
   FETCH_FOOD_ITEMS_SUCCESS,
   DELETE_FOOD_SUCCESS,
   ADD_ITEM_TO_SEARCH,
-  REMOVE_ITEM_FROM_SEARCH
+  REMOVE_ITEM_FROM_SEARCH,
 } from '../actions/app'
 
 const initialState = {
   fridge: [],
   pantry: [],
-  searchItems: [],
+  searchItems: []
 }
 
 export default function reducer(state = initialState, action) {
@@ -22,6 +22,7 @@ export default function reducer(state = initialState, action) {
 
     else if (action.type === FETCH_FOOD_ITEMS_SUCCESS) {
       const {fooditems} = action.foodItems
+      // if(action.foodItems.length > 0)
       const fridgeItems = fooditems
             .filter(obj => obj.container === "fridge")
       const pantryItems = fooditems
@@ -50,6 +51,7 @@ export default function reducer(state = initialState, action) {
         searchItems: [...state.searchItems.filter((e) => e !== action.searchItem)]
       })
     }
+
 
     return state;
 }

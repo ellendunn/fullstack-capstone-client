@@ -1,6 +1,8 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 import {loadAuthToken} from '../local-storage';
+import swal from 'sweetalert';
+
 
 export const ADD_FOOD_SUCCESS = 'ADD_FOOD_SUCCESS';
 export const addFoodSuccess= (foodItem) => ({
@@ -46,7 +48,11 @@ export const fetchFoodItems = () => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(foods => dispatch(fetchFoodItemsSuccess(foods)))
-  .catch(err => console.error(err))
+  .catch(err => {
+    swal({
+      title: 'Your Kitchen is empty! Begin by adding foods to your Fridge and Pantry'
+    })
+  })
 }
 
 export const DELETE_FOOD_SUCCESS = 'DELETE_FOOD_SUCCESS';

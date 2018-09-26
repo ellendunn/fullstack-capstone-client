@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom';
 
 import FoodContainer from './food-container';
-import {searchRecipesByIngredients} from '../actions/recipes-api'
+// import {searchRecipesByIngredients} from '../actions/recipes-api'
 
 import './kitchen.css'
 
@@ -14,22 +14,27 @@ export class Kitchen extends React.Component {
   }
 
   submitSearch(items) {
-    console.log(items)
     this.setState(state => ({submitted: true}));
-    // this.props.dispatch(searchRecipesByIngredients(items))
   }
 
   render() {
     if (this.state.submitted) {
-      console.log(this.state)
       return <Redirect to="/recipes" />
     }
+
+    const searchTerms = this.props.searchItems.map((item, index) => (
+      <li key={index} className="search-term">
+        {item}
+      </li>
+    ))
 
     return (
       <div>
         <div>
           <h3>Select items in your fridge and pantry to find recipes</h3>
-          <p>{this.props.searchItems}</p>
+          <div>
+            <ul className="search-items">{searchTerms}</ul>
+          </div>
           <button
           onClick={() => this.submitSearch(this.props.searchItems)}
           type="submit">

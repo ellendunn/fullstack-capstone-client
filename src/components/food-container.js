@@ -9,7 +9,7 @@ import './food-container.css'
 export class FoodContainer extends React.Component {
 
   deleteItem(item) {
-    return this.props.dispatch(deleteFoodFromContainer(item))
+    this.props.dispatch(deleteFoodFromContainer(item))
   }
 
   render() {
@@ -37,8 +37,4 @@ export class FoodContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  // foodItems: state.items
-})
-
-export default connect(mapStateToProps)(FoodContainer)
+export default connect()(FoodContainer)
