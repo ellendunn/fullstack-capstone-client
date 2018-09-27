@@ -16,25 +16,29 @@ export class NavBar extends React.Component {
     let button, backButton
     if (this.props.loggedIn) {
       button =	(
-        <button onClick={() => this.logOut()}>Log Out</button>
+        <button onClick={() => this.logOut()} className="logout-button">
+        Log Out
+        </button>
       );
     }
 
     if (this.props.recipeId) {
       backButton = (
         <Link to="/recipes" >
-        <button >Back To Recipes</button>
+        <button className="to-recipes-button">Back To Recipes</button>
         </Link >
       )
     }
 
     return(
       <nav className="nav-bar">
-        <Link to="/dashboard">
-          <h1>KitchenSmart</h1>
+        <Link to="/dashboard" style={{ textDecoration: 'none' }} className="home-button clearfix">
+          <h1 className="title">KitchenSmart</h1>
         </Link>
-        {button}
-        {backButton}
+        <div className="nav-buttons">
+          {backButton}
+          {button}
+        </div>
       </nav>
     )
   }

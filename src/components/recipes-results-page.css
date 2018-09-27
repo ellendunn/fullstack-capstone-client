@@ -1,5 +1,81 @@
 .recipes {
-  margin-top: 50px;
-  /* border: 1px gray solid; */
   color: black;
+  padding: 10px;
+  margin: 120px 0px;
+}
+
+.recipe-title {
+  padding: 10px;
+  font-size: 20px
+}
+
+.recipe-info p {
+  padding: 5px 10px 0px 0px
+}
+
+.recipe-result {
+  background-color: lightgray;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+  padding: 15px 10px;
+  margin: 15px;
+  width: 45%;
+  height: 360px;
+  vertical-align: top;
+}
+
+.recipes-list {
+  padding: 10px;
+  margin: 10px 0px;
+}
+
+.recipe-info {
+  display: inline-flex;
+  padding: 5px;
+  padding-bottom: 10px;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recipe-result img {
+  max-width: 90%;
+  float: center;
+  padding: 10px
+}
+
+button.select-recipe-button {
+  padding: 5px;
+}
+
+
+@media only screen and (max-width: 665px) {
+  .recipe-result {
+  	width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px)
+and (max-device-width : 768px) {
+/* Styles */
+  .recipe-result {
+  	width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and
+(max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+  .recipe-result {
+    width: 45%;
+    padding: 15px 10px;
+    margin: 15px;
+  }
 }

@@ -6,6 +6,7 @@ import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import appReducer from './reducers/app';
 import recipesApiReducer from './reducers/recipes-api-reducer';
+// import utilsReducer from './reducers/utils'
 
 import {loadAuthToken} from './local-storage'
 import {setAuthToken, refreshAuthToken} from './actions/auth'

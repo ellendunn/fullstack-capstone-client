@@ -29,6 +29,7 @@ export class SelectButton extends React.Component {
       <button
         style={{background: this.state.isSelected ? "green" : "white" }}
         onClick={() => this.handleClick(this.props.name)}
+        className="select-food-button"
         >
         Select
       </button>

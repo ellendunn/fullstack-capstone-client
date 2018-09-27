@@ -6,10 +6,14 @@ import {
   REMOVE_ITEM_FROM_SEARCH,
 } from '../actions/app'
 
+import {FETCH_REQUEST} from '../actions/utils'
+
+
 const initialState = {
   fridge: [],
   pantry: [],
-  searchItems: []
+  searchItems: [],
+  loading: false
 }
 
 export default function reducer(state = initialState, action) {
@@ -29,7 +33,8 @@ export default function reducer(state = initialState, action) {
             .filter(obj => obj.container === "pantry")
       return Object.assign({}, state, {
         fridge: [...state.fridge.concat(fridgeItems)],
-        pantry: [...state.pantry.concat(pantryItems)]
+        pantry: [...state.pantry.concat(pantryItems)],
+        // loading: false
       })
     }
 
@@ -52,6 +57,11 @@ export default function reducer(state = initialState, action) {
       })
     }
 
+    if (action.type === FETCH_REQUEST) {
+      return Object.assign({}, state, {
+        loading: true
+      })
+    }
 
     return state;
 }

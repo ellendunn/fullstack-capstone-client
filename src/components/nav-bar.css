@@ -1,7 +1,9 @@
+.nav-bar * {
+	/* border: 1px black solid */
+}
+
 .nav-bar {
-	background-color: gray;
-	border: 1px black solid;
-	display: inline-block;
+	background-color: #e24e42;
 	text-align: left;
 	position: fixed;
   top: 0;
@@ -9,9 +11,85 @@
   right: 0;
   z-index: 10;
   font-size: 14px;
+	height: 100px
+}
+
+.nav-buttons, .home-button {
+	display: inline-flex;
+	margin-top: 20px;
+}
+
+.nav-bar button {
+	margin: 10px;
+}
+
+.nav-buttons {
+	float: right;
+	padding: 10px;
+	margin-top: 20px;
+	margin-right: 10px;
+}
+
+.home-button {
+	color: white;
+	font-size: 26px;
+	display: inline-flex;
+	margin: 20px 0px 10px 10px;
 	padding: 10px;
 }
 
-nav button {
-	float: right;
+.title {
+	padding: 0px
+}
+
+.clearfix:after {
+	clear: both
+}
+
+@media only screen and (max-width: 530px) {
+	.home-button {
+		font-size: 16px;
+		padding-top: 20px;
+	}
+
+	.logout-button, .to-recipes-button {
+		font-size: 12px;
+		padding: 5px
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.clearfix:after {
+		clear: both
+	}
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px)
+and (max-device-width : 768px) {
+/* Styles */
+
+	.home-button {
+		font-size: 12px;
+		padding-top: 20px;
+	}
+
+	.logout-button, .to-recipes-button {
+		font-size: 12px;
+		padding: 5px
+	}
+
+	.nav-bar {
+		padding: 5px
+	}
+
+
+}
+
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and
+(max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+
 }

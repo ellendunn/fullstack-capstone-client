@@ -1,5 +1,8 @@
 import {API_BASE_URL} from '../config';
-import {normalizeResponseErrors} from './utils';
+import {
+  normalizeResponseErrors,
+  fetchRequest
+} from './utils';
 import {loadAuthToken} from '../local-storage';
 import swal from 'sweetalert';
 
@@ -37,6 +40,7 @@ export const fetchFoodItemsSuccess = (foodItems) => ({
 })
 
 export const fetchFoodItems = () => (dispatch, getState) => {
+  dispatch(fetchRequest())
   const authToken = loadAuthToken();
   return fetch(`${API_BASE_URL}/food-items`, {
     method: 'GET',

@@ -1,0 +1,17 @@
+.new-item-form label {
+  /* border: 1px black solid; */
+  padding: 0
+}
+
+.new-item-form {
+  padding: 20px;
+}
+
+.form-input {
+  padding: 10px;
+}
+
+input {
+  padding: 10px;
+
+}

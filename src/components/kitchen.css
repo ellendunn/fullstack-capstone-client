@@ -1,31 +1,30 @@
-.kitchen {
-  /* display: inline-block; */
-}
 
-.food-container {
+.search-term {
   display: inline-block;
-  width: 50%;
-  border: 1px black solid;
-  vertical-align: top;
+  background-color: green;
+  margin: 5px 5px;
+  padding: 5px 10px
 }
 
 .search-items {
+  padding: 20px;
   display: inline-block;
-}
-
-.search-term {
-  display: inline-block
-}
-
-ul {
   list-style: none;
-  text-align: left
+  text-align: center;
+  height: 20px;
+  width: 75%;
+  line-height: 20px;
 }
 
-ul button {
-  margin: 10px;
+.recipe-search-button {
+  margin: 20px;
+  font-size: 14px
 }
 
-li {
-  border: 1px black solid
+.recipe-search-info {
+  padding-top: 20px;
+  padding: 10px;
+  margin: 10px 0px;
+  background: #fff6e6;
+  border-radius: 5px
 }

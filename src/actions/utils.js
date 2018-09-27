@@ -15,3 +15,8 @@ export const normalizeResponseErrors = res => {
   }
   return res;
 };
+
+export const FETCH_REQUEST = 'FETCH_REQUEST';
+export const fetchRequest = () => ({
+  type: FETCH_REQUEST
+})

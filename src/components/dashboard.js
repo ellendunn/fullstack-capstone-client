@@ -8,6 +8,7 @@ import {
 } from '../actions/app'
 import RequiresLogin from './requires-login';
 import Kitchen from './kitchen';
+import Loading from './loading';
 
 import './dashboard.css'
 
@@ -30,9 +31,13 @@ export class Dashboard extends React.Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return <Loading />
+    }
+
     return (
       <div className="dashboard" >
-        <h1>{this.props.name}s Kitchen & Pantry</h1>
+        <h1 className="dashboard-header">{this.props.name}s Kitchen</h1>
         <Kitchen />
       </div>
     )
@@ -46,7 +51,8 @@ const mapStateToProps = state => {
     name: `${currentUser.firstName} ${currentUser.lastName}`,
     protectedData: state.protectedData.data,
     fridge: state.app.fridge,
-    pantry: state.app.pantry
+    pantry: state.app.pantry,
+    loading: state.app.loading
   };
 };
 

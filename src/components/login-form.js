@@ -46,6 +46,10 @@ export class LoginForm extends React.Component {
           <button disabled={this.props.pristine || this.props.submitting} >
             Log In
           </button>
+          <div className="demo-info">
+            <p>Demo Account</p>
+            <p>username: demo, password: demodemo</p>
+          </div>
       </form>
     );
   }

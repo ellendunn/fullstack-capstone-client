@@ -1,3 +1,45 @@
 .dashboard {
-  padding-top: 50px
+  padding: 30px;
+  margin: 90px 0px;
+}
+
+.dashboard-header {
+  padding: 10px;
+  font-size: 36px;
+  margin: 0px;
+}
+
+@media only screen and (max-width: 1024px) {
+
+}
+
+@media only screen and (max-width: 600px) {
+  .food-container {
+		width: 100%
+	}
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px)
+and (max-device-width : 768px) {
+/* Styles */
+
+.food-container {
+	width: 100%
+}
+
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and
+(max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and
+(max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+
 }

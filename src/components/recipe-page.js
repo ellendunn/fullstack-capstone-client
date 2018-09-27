@@ -22,7 +22,7 @@ export class RecipePage extends React.Component {
     }
 
     const ingredients = this.props.ingredients.map((item, index) => (
-      <li key={index}>
+      <li key={index} className="ingredient">
         {item.originalString}
       </li>
     ))
@@ -32,20 +32,20 @@ export class RecipePage extends React.Component {
       <div className="recipe-page">
         <h1>{this.props.recipeInfo.title}</h1>
         <p>Prep Time: {this.props.recipeInfo.readyInMinutes} minutes</p>
+        <img className="recipe-image" src={this.props.recipeInfo.image} alt="finished recipe"/>
         <div className="ingredients">
           <h3>Ingredients:</h3>
           <ul>{ingredients}</ul>
         </div>
         <div className="instructions">
           <h3>Instructions:</h3>
-          <li>
+          <div>
             {this.props.instructions
             ? this.props.instructions
-            : <a href={this.props.recipeInfo.sourceUrl}> Full recipe here </a>)
+            : <a href={this.props.recipeInfo.sourceUrl} target="_blank"><p> Full recipe here</p></a>
             }
-          </li>
+          </div>
         </div>
-        <img className="recipe-image" src={this.props.recipeInfo.image} alt="finished recipe"/>
       </div>
     )
   }

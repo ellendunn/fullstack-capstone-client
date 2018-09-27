@@ -3,6 +3,7 @@ import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import LoginForm from './login-form'
+import './landing-page.css'
 
 export function LandingPage(props) {
   // console.log(props)
@@ -13,7 +14,7 @@ export function LandingPage(props) {
 
   return(
     <div className="landing">
-      <header>
+      <header className="header">
         <h1>Learn to cook with what you have!</h1>
         <h3>Discover new recipes and incorporate foods that are already in your pantry and refridgerator to minimize waste and save money.</h3>
       </header>

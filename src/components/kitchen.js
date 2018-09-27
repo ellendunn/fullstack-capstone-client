@@ -10,7 +10,7 @@ import './kitchen.css'
 export class Kitchen extends React.Component {
   state = {
     submitted: false,
-    loading: false
+    // loading: false
   }
 
   submitSearch(items) {
@@ -22,26 +22,35 @@ export class Kitchen extends React.Component {
       return <Redirect to="/recipes" />
     }
 
-    const searchTerms = this.props.searchItems.map((item, index) => (
-      <li key={index} className="search-term">
-        {item}
-      </li>
-    ))
+    const searchTerms = () => {
+      if (this.props.searchItems.length === 0) {
+        return <p>You have not selected any ingredients</p>
+      } else {
+        return this.props.searchItems.map((item, index) => (
+          <li key={index} className="search-term">
+            {item}
+          </li>
+      ))
+    }
+  }
 
     return (
-      <div>
-        <div>
-          <h3>Select items in your fridge and pantry to find recipes</h3>
+      <div className="kitchen">
+        <div className="recipe-search-info">
+          <h3>Select items in your fridge and pantry to find new recipes!</h3>
           <div>
-            <ul className="search-items">{searchTerms}</ul>
+            <ul className="search-items">
+              {searchTerms()}
+            </ul>
           </div>
           <button
           onClick={() => this.submitSearch(this.props.searchItems)}
-          type="submit">
-          What can I cook?
+          type="submit"
+          className="recipe-search-button">
+          What can I cook with these ingredients?
           </button>
         </div>
-        <div className="kitchen">
+        <div className="containers">
           <FoodContainer name="Fridge" items={this.props.fridge}/>
           <FoodContainer name="Pantry" items={this.props.pantry}/>
         </div>

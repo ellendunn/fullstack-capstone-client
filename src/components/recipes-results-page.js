@@ -39,17 +39,25 @@ export class RecipesResultsPage extends React.Component {
     }
 
     const recipes = this.props.recipes.map((recipe, index) => (
-      <li key={recipe.id}>
-        <p>{recipe.title}</p>
+      <li key={recipe.id} className="recipe-result">
+        <h2 className="recipe-title">{recipe.title}</h2>
+        <div className="recipe-info">
+          <p>Uses {recipe.usedIngredientCount} of your ingredients</p>
+          <button
+            onClick={() => this.onClick(recipe)}
+            className="select-recipe-button"
+          >
+            Cook This!
+          </button>
+        </div>
         <img src={recipe.image} alt={recipe.title} />
-        <button onClick={() => this.onClick(recipe)}>Cook This!</button>
       </li>
     ))
 
     return (
       <div className="recipes">
-        <h2>Recipe Results</h2>
-        <ul>
+        <h1>Recipe Results</h1>
+        <ul className="recipes-list">
           {recipes}
         </ul>
       </div>

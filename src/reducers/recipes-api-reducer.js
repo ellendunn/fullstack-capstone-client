@@ -1,9 +1,10 @@
 import {
   SEARCH_RECIPES_SUCCESS,
   FETCH_RECIPE_SUCCESS,
-  FETCH_REQUEST,
   SELECT_RECIPE
 } from '../actions/recipes-api';
+
+import {FETCH_REQUEST} from '../actions/utils'
 
 const initialState = {
   recipes: [],

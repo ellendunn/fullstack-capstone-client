@@ -14,16 +14,20 @@ export class FoodContainer extends React.Component {
 
   render() {
     const items = this.props.items.map((item, index) => (
-        <li key={item.id}>
+        <li key={item.id} className="food-item">
           {item.food}
-          <SelectButton name={item.food} />
-          <button onClick={() => this.deleteItem(item)}>Delete</button>
+          <div className="food-item-buttons">
+            <SelectButton name={item.food} className="food-item-button"/>
+            <button onClick={() => this.deleteItem(item)} className="food-item-button">
+              Delete
+            </button>
+          </div>
         </li>
       ))
 
     return (
       <div className="food-container">
-        <h1>{this.props.name}</h1>
+        <h1 className="container-name">{this.props.name}</h1>
         <ul className={this.props.name}>
           {items}
         </ul>

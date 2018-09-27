@@ -1,5 +1,8 @@
 import {API_BASE_URL} from '../config';
-import {normalizeResponseErrors} from './utils';
+import {
+  normalizeResponseErrors,
+  // fetchRequest
+} from './utils';
 
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS'
 export const fetchProtectedDataSuccess = (data) => ({
@@ -14,6 +17,7 @@ export const fetchProtectedDataErorr = (error) => ({
 })
 
 export const fetchProtectedData = () => (dispatch, getState) => {
+  // dispatch(fetchRequest())
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/protected/`, {
     method: 'GET',

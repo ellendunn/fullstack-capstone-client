@@ -3,6 +3,8 @@ import {Field, reduxForm} from 'redux-form';
 import Input from './input';
 import {addFoodToContainer} from '../actions/app';
 
+import './new-item-form.css'
+
 export class NewItemForm extends React.Component{
   state = {
     value: ''

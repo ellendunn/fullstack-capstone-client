@@ -1,13 +1,8 @@
-import {normalizeResponseErrors} from './utils';
+import {normalizeResponseErrors, fetchRequest} from './utils';
 import {loadAuthToken} from '../local-storage'
 
 import {API_BASE_URL} from '../config';
 
-
-export const FETCH_REQUEST = 'FETCH_REQUEST';
-export const fetchRequest = () => ({
-  type: FETCH_REQUEST
-})
 
 export const SEARCH_RECIPES_SUCCESS = 'SEARCH_RECIPES_SUCCESS';
 export const searchRecipesSuccess = (recipes) => ({
