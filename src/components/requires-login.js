@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import Loading from  './loading'
 
 export default () => Component => {
   function RequiresLogin(props) {
     const {authenticating, loggedIn, error, ...passThroughProps} = props;
     if (authenticating) {
       console.log('logging in')
-      return <div>Loading Your Kitchen</div>;
+      return < Loading />;
     } else if (!loggedIn || error) {
       console.log('not logged in')
       return <Redirect to="/" />;

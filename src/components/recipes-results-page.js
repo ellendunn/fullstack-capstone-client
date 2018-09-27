@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import swal from 'sweetalert';
 
+import RequiresLogin from './requires-login';
 import {
   searchRecipesByIngredients,
   searchRecipesSuccess,
@@ -27,15 +29,22 @@ export class RecipesResultsPage extends React.Component {
   }
 
   render() {
-    if( this.props.loggedIn) {
-      return <Redirect to="/" />
-    }
-    if (this.props.selected === true) {
+
+    if (this.props.selected) {
       return <Redirect to="/recipes/info" />
     }
 
     if (this.props.loading) {
       return <Loading />
+    }
+
+    if (this.props.recipes.length === 0) {
+      swal({
+        title: "No recipes were found!",
+        text: "Check the spelling of your ingredients, or try a new search.",
+        button: "Return to Kitchen"
+      })
+
     }
 
     const recipes = this.props.recipes.map((recipe, index) => (
@@ -53,6 +62,7 @@ export class RecipesResultsPage extends React.Component {
         <img src={recipe.image} alt={recipe.title} />
       </li>
     ))
+
 
     return (
       <div className="recipes">
@@ -74,4 +84,4 @@ const mapStateToProps = (state) => ({
 
 })
 
-export default connect(mapStateToProps)(RecipesResultsPage)
+export default RequiresLogin()(connect(mapStateToProps)(RecipesResultsPage))

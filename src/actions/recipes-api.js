@@ -10,10 +10,12 @@ export const searchRecipesSuccess = (recipes) => ({
   recipes
 })
 
+// export const SEARCH_RECIPES_ERROR = 'SEARCH_RECIPES_ERROR'
+
+
 export const searchRecipesByIngredients = (ingredients) => dispatch => {
   dispatch(fetchRequest())
   const authToken = loadAuthToken()
-  let ingredients = ['spinach', 'tomato']
   return fetch(`${API_BASE_URL}/recipes`, {
       method: 'POST',
       headers: {
@@ -56,3 +58,8 @@ export const fetchRecipeById = (id) => dispatch => {
   .then(res => res.json())
   .then(recipe => dispatch(fetchRecipeSuccess(recipe)))
 }
+
+export const CLEAR_RECIPE_ID = 'CLEAR_RECIPE_ID';
+export const clearRecipeId = () => ({
+  type: CLEAR_RECIPE_ID
+})

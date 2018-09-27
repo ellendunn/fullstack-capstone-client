@@ -1,11 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchProtectedData} from '../actions/protected-data';
 import {
   fetchFoodItems,
-  fetchFoodItemsSuccess
+  clearSearchItems
+  // fetchFoodItemsSuccess
 } from '../actions/app'
+import {clearRecipeId} from '../actions/recipes-api'
 import RequiresLogin from './requires-login';
 import Kitchen from './kitchen';
 import Loading from './loading';
@@ -15,23 +16,21 @@ import './dashboard.css'
 export class Dashboard extends React.Component {
 
   componentDidMount() {
-    // if (this.props.username) {
-      this.props.dispatch(fetchProtectedData())
-      .then(() => {
-        if (this.props.fridge.length === 0 && this.props.pantry.length === 0) {
-          console.log(this.props.fridge, this.props.pantry)
-          this.props.dispatch(fetchFoodItems());
-        }
-        else {
-          let foodItems = [];
-          this.props.dispatch(fetchFoodItemsSuccess(foodItems))
-        }
+    const authToken = localStorage.getItem('authToken')
+    if (!this.props.fridge.length && !this.props.pantry.length && authToken) {
+        this.props.dispatch(fetchFoodItems());
       }
-    )
+      this.props.dispatch(clearSearchItems())
+      this.props.dispatch(clearRecipeId())
+      // else {
+      //   let foodItems = this.props.fridge.concat(this.props.pantry)
+      //   console.log(foodItems)
+      //   this.props.dispatch(fetchFoodItemsSuccess(foodItems))
+      // }
   }
 
   render() {
-    if (this.props.loading) {
+    if (this.props.loading && (!this.props.fridge.length || !this.props.pantry.length)) {
       return <Loading />
     }
 
@@ -49,10 +48,11 @@ const mapStateToProps = state => {
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
-    protectedData: state.protectedData.data,
     fridge: state.app.fridge,
     pantry: state.app.pantry,
-    loading: state.app.loading
+    loading: state.app.loading,
+    searchItems: state.app.searchItems
+
   };
 };
 

@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 
 import {reducer as formReducer} from 'redux-form';
 import authReducer from './reducers/auth';
-import protectedDataReducer from './reducers/protected-data';
+// import protectedDataReducer from './reducers/protected-data';
 import appReducer from './reducers/app';
 import recipesApiReducer from './reducers/recipes-api-reducer';
 // import utilsReducer from './reducers/utils'
@@ -16,7 +16,7 @@ const store = createStore(
     combineReducers({
         form: formReducer,
         auth: authReducer,
-        protectedData: protectedDataReducer,
+        // protectedData: protectedDataReducer,
         app: appReducer,
         recipes: recipesApiReducer
     }),

@@ -1,6 +1,6 @@
 
 export const required = value =>
-  value ? undefined : 'Required'
+  value ? undefined : 'This field is required'
 
 export const nonEmpty = value =>
   value.trim() !== '' ? undefined : 'This field cannot be empty'

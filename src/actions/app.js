@@ -42,6 +42,7 @@ export const fetchFoodItemsSuccess = (foodItems) => ({
 export const fetchFoodItems = () => (dispatch, getState) => {
   dispatch(fetchRequest())
   const authToken = loadAuthToken();
+  console.log(authToken);
   return fetch(`${API_BASE_URL}/food-items`, {
     method: 'GET',
     headers: {
@@ -90,4 +91,14 @@ export const REMOVE_ITEM_FROM_SEARCH = 'REMOVE_ITEM_FROM_SEARCH';
 export const removeItemFromSearch = (searchItem) => ({
   type: REMOVE_ITEM_FROM_SEARCH,
   searchItem
+})
+
+export const CLEAR_USER_DATA = 'CLEAR_USER_DATA';
+export const clearUserData = () => ({
+  type: CLEAR_USER_DATA
+})
+
+export const CLEAR_SEARCH_ITEMS = 'CLEAR_SEARCH_ITEMS';
+export const clearSearchItems = () => ({
+  type: CLEAR_SEARCH_ITEMS
 })

@@ -1,3 +1,18 @@
 .loading {
-  margin: 150px
+  display: inline-block;
+  /* border: 1px black solid; */
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  background-image: url(https://cdn.dribbble.com/users/655390/screenshots/2186909/loader-for-dribble.gif);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 300px 250px;
+
+  box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset;
+  height: 250px;
+  width: 300px;
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom';
+import swal from 'sweetalert';
+
 
 import FoodContainer from './food-container';
 // import {searchRecipesByIngredients} from '../actions/recipes-api'
@@ -13,8 +15,16 @@ export class Kitchen extends React.Component {
     // loading: false
   }
 
+
   submitSearch(items) {
-    this.setState(state => ({submitted: true}));
+    if (items.length !== 0 ) {
+      this.setState(state => ({submitted: true}));
+    } else {
+      swal({
+        title: "You have not selected any ingredients!",
+        icon: "warning"
+      })
+    }
   }
 
   render() {

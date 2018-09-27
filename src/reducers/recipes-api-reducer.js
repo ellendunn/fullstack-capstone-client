@@ -1,7 +1,8 @@
 import {
   SEARCH_RECIPES_SUCCESS,
   FETCH_RECIPE_SUCCESS,
-  SELECT_RECIPE
+  SELECT_RECIPE,
+  CLEAR_RECIPE_ID
 } from '../actions/recipes-api';
 
 import {FETCH_REQUEST} from '../actions/utils'
@@ -39,5 +40,11 @@ export default function reducer(state = initialState, action) {
       loading: true
     })
   }
+  else if (action.type === CLEAR_RECIPE_ID) {
+    return Object.assign({}, state, {
+      recipeId: ''
+    })
+  }
+
   return state
 }

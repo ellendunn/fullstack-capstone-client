@@ -4,6 +4,8 @@ import {
   DELETE_FOOD_SUCCESS,
   ADD_ITEM_TO_SEARCH,
   REMOVE_ITEM_FROM_SEARCH,
+  CLEAR_USER_DATA,
+  CLEAR_SEARCH_ITEMS
 } from '../actions/app'
 
 import {FETCH_REQUEST} from '../actions/utils'
@@ -25,8 +27,9 @@ export default function reducer(state = initialState, action) {
     }
 
     else if (action.type === FETCH_FOOD_ITEMS_SUCCESS) {
+      console.log(action.foodItems)
       const {fooditems} = action.foodItems
-      // if(action.foodItems.length > 0)
+      console.log(fooditems)
       const fridgeItems = fooditems
             .filter(obj => obj.container === "fridge")
       const pantryItems = fooditems
@@ -34,7 +37,7 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {
         fridge: [...state.fridge.concat(fridgeItems)],
         pantry: [...state.pantry.concat(pantryItems)],
-        // loading: false
+        loading: false
       })
     }
 
@@ -57,9 +60,23 @@ export default function reducer(state = initialState, action) {
       })
     }
 
-    if (action.type === FETCH_REQUEST) {
+    else if (action.type === FETCH_REQUEST) {
       return Object.assign({}, state, {
         loading: true
+      })
+    }
+
+    else if (action.type === CLEAR_USER_DATA) {
+      return Object.assign({}, state, {
+        fridge: [],
+        pantry: [],
+        searchItems: []
+      })
+    }
+
+    else if (action.type === CLEAR_SEARCH_ITEMS) {
+      return Object.assign({}, state, {
+        searchItems: []
       })
     }
 
