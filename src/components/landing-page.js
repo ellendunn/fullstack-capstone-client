@@ -15,7 +15,7 @@ export function LandingPage(props) {
     <div className="landing">
       <header className="header">
         <h1>Learn to cook with what you have!</h1>
-        <h3>Discover new recipes and incorporate foods that are already in your pantry and refridgerator to minimize waste and save money.</h3>
+        <h3>Discover new recipes and incorporate foods that are already in your pantry and refrigerator to minimize waste and save money.</h3>
       </header>
       <LoginForm />
       <Link to="/register">Register</Link>
