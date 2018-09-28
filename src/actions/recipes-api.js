@@ -27,6 +27,7 @@ export const searchRecipesByIngredients = (ingredients) => dispatch => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(recipes => dispatch(searchRecipesSuccess(recipes)))
+  .catch(err => console.error(err, 'error fetching recipes'))
 }
 
 
@@ -57,6 +58,8 @@ export const fetchRecipeById = (id) => dispatch => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(recipe => dispatch(fetchRecipeSuccess(recipe)))
+  .catch(err => console.error(err, 'error fetching recipe'))
+
 }
 
 export const CLEAR_RECIPE_ID = 'CLEAR_RECIPE_ID';

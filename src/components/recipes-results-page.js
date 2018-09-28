@@ -7,7 +7,8 @@ import RequiresLogin from './requires-login';
 import {
   searchRecipesByIngredients,
   searchRecipesSuccess,
-  selectRecipe
+  selectRecipe,
+  clearRecipeId
 } from '../actions/recipes-api';
 
 import Loading from './loading'
@@ -16,13 +17,23 @@ import './recipes-results-page.css'
 export class RecipesResultsPage extends React.Component {
 
   componentDidMount() {
-    if (this.props.recipes.length === 0) {
-      this.props.dispatch(searchRecipesByIngredients(this.props.searchItems))
-    } else {
-      let recipes = []
-      this.props.dispatch(searchRecipesSuccess(recipes))
+    if (this.props.selected) {
+      this.props.dispatch(clearRecipeId())  //removes "back to recipes button"
     }
+    this.props.dispatch(searchRecipesByIngredients(this.props.searchItems))
+      .then(() => {
+        console.log('recipes:', this.props.recipes)
+        if (!this.props.recipes.length) {
+          swal({
+            title: "No recipes were found!",
+            text: "Check the spelling of your ingredients, or try a new search.",
+            button: "Return to Kitchen"
+          })
+          return <Redirect to="/dashboard" />
+        }
+      })
   }
+
 
   onClick(recipe) {
     this.props.dispatch(selectRecipe(recipe.id))
@@ -38,14 +49,6 @@ export class RecipesResultsPage extends React.Component {
       return <Loading />
     }
 
-    if (this.props.recipes.length === 0) {
-      swal({
-        title: "No recipes were found!",
-        text: "Check the spelling of your ingredients, or try a new search.",
-        button: "Return to Kitchen"
-      })
-
-    }
 
     const recipes = this.props.recipes.map((recipe, index) => (
       <li key={recipe.id} className="recipe-result">

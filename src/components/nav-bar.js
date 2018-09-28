@@ -27,7 +27,7 @@ export class NavBar extends React.Component {
     if (this.props.recipeId) {
       backButton = (
         <Link to="/recipes" >
-        <button className="to-recipes-button">Back To Recipes</button>
+          <button className="to-recipes-button">Back To Recipes</button>
         </Link >
       )
     }

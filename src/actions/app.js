@@ -30,7 +30,7 @@ export const addFoodToContainer = (oldContainer, food) => dispatch => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => dispatch(addFoodSuccess(res)))
-    .catch(err => console.log(err))
+    .catch(err => console.error(err))
 }
 
 export const FETCH_FOOD_ITEMS_SUCCESS = 'FETCH_FOOD_ITEMS_SUCCESS';
@@ -42,7 +42,6 @@ export const fetchFoodItemsSuccess = (foodItems) => ({
 export const fetchFoodItems = () => (dispatch, getState) => {
   dispatch(fetchRequest())
   const authToken = loadAuthToken();
-  console.log(authToken);
   return fetch(`${API_BASE_URL}/food-items`, {
     method: 'GET',
     headers: {

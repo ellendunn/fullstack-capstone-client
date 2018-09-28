@@ -16,17 +16,12 @@ import './dashboard.css'
 export class Dashboard extends React.Component {
 
   componentDidMount() {
+    this.props.dispatch(clearSearchItems())
+    this.props.dispatch(clearRecipeId())
     const authToken = localStorage.getItem('authToken')
     if (!this.props.fridge.length && !this.props.pantry.length && authToken) {
         this.props.dispatch(fetchFoodItems());
       }
-      this.props.dispatch(clearSearchItems())
-      this.props.dispatch(clearRecipeId())
-      // else {
-      //   let foodItems = this.props.fridge.concat(this.props.pantry)
-      //   console.log(foodItems)
-      //   this.props.dispatch(fetchFoodItemsSuccess(foodItems))
-      // }
   }
 
   render() {

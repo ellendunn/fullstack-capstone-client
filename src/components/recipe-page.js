@@ -26,7 +26,6 @@ export class RecipePage extends React.Component {
         {item.originalString}
       </li>
     ))
-    console.log(this.props.recipeInfo.analyzedInstructions, this.props.recipeId)
 
     return (
       <div className="recipe-page">

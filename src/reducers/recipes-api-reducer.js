@@ -18,7 +18,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   if (action.type === SEARCH_RECIPES_SUCCESS) {
     return Object.assign({}, state, {
-      recipes: [...state.recipes.concat(action.recipes)],
+      recipes: action.recipes,
       selected: false,
       loading: false
     })
@@ -42,7 +42,8 @@ export default function reducer(state = initialState, action) {
   }
   else if (action.type === CLEAR_RECIPE_ID) {
     return Object.assign({}, state, {
-      recipeId: ''
+      recipeId: '',
+      recipes: []
     })
   }
 
