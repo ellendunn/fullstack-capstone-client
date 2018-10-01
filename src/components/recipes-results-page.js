@@ -21,18 +21,12 @@ export class RecipesResultsPage extends React.Component {
       this.props.dispatch(clearRecipeId())  //removes "back to recipes button"
     }
     this.props.dispatch(searchRecipesByIngredients(this.props.searchItems))
-      .then(() => {
-        console.log('recipes:', this.props.recipes)
-        if (!this.props.recipes.length) {
-          swal({
-            title: "No recipes were found!",
-            text: "Check the spelling of your ingredients, or try a new search.",
-            button: "Return to Kitchen"
-          })
-          return <Redirect to="/dashboard" />
-        }
-      })
+
   }
+
+  // componentDidUnmount() {
+  //   console.log('unmounted recies')
+  // }
 
 
   onClick(recipe) {
@@ -40,6 +34,15 @@ export class RecipesResultsPage extends React.Component {
   }
 
   render() {
+
+    if (!this.props.recipes.length) {
+      swal({
+        title: "No recipes were found!",
+        text: "Check the spelling of your ingredients, or try a new search.",
+        button: "Return to Kitchen"
+      })
+      return <Redirect to="/dashboard" />
+    }
 
     if (this.props.selected) {
       return <Redirect to="/recipes/info" />

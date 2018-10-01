@@ -4,6 +4,7 @@ import {clearAuth} from '../actions/auth'
 import {Link} from 'react-router-dom';
 import {clearAuthToken} from '../local-storage'
 import {clearUserData} from '../actions/app'
+import {clearRecipeId} from '../actions/recipes-api'
 
 import './nav-bar.css'
 
@@ -24,8 +25,9 @@ export class NavBar extends React.Component {
       );
     }
 
-    if (this.props.recipeId) {
+    if (this.props.selected) {
       backButton = (
+        //add onCLick function here??
         <Link to="/recipes" >
           <button className="to-recipes-button">Back To Recipes</button>
         </Link >
