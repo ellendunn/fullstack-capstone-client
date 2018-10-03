@@ -13,6 +13,7 @@ import {
   refreshAuthToken
 } from '../auth'
 
+import {API_BASE_URL} from '../../config'
 
 describe('setAuthToken', () => {
   it('should return the action', () => {
@@ -55,9 +56,31 @@ describe('authError', () => {
   })
 })
 
-describe('login', () => {
-  it('should dispatch fetchFoodItems', () => {
-    const username = "username"
-    const password = "password"
-  })
-})
+// describe('login', () => {
+//   it('should dispatch fetchFoodItems', () => {
+//     const username = "username"
+//     const password = "password"
+//     global.fetch = jest.fn().mockImplementation(() =>
+//       Promise.resolve({
+//         ok: true,
+//         json() {
+//           return username, password;
+//         }
+//       })
+//     )
+//     const dispatch = jest.fn();
+//     return login(username, password)(dispatch).then(() => {
+//       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/auth/login`,
+//         {
+//           "method": "POST",
+//           "headers": {
+//             "Content-Type": "application/json"
+//           },
+//           "body": JSON.stringify({
+//             "username": `${username}`,
+//             "password": `${password}`
+//           })
+//         })
+//     })
+//   })
+// })
