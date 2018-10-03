@@ -4,15 +4,16 @@
   margin-top: 150px;
   margin-left: auto;
   margin-right: auto;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-  background-image: url(https://cdn.dribbble.com/users/655390/screenshots/2186909/loader-for-dribble.gif);
+  /* -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); */
+  background-image: url('../Pacman-1s-200px.gif');
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   background-position: center;
-  background-size: 300px 250px;
+  /* background-size: 300px 250px; */
 
-  box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset;
-  height: 250px;
-  width: 300px;
+  /* box-shadow: 25px 25px 50px 0 #009999 inset, -25px -25px 50px 0 #009999 inset; */
+  height: 200px;
+  width: 200px;
+  padding: 0;
 }

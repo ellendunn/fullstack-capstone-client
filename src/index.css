@@ -14,7 +14,11 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
-	/* background-color:  #009999; */
+	/* background {
+		image: url('./cocina.gif') repeat;
+		opacity: 0.5
+	}; */
+	background-color: #fffde7
 	/* color: white; */
 }
 
@@ -27,8 +31,16 @@ form {
 
 button {
 	background-color: white;
+	color: black;
 	font-size: 12px;
 	padding: 10px;
+	border-radius: 5px
+}
+
+button:hover {
+	background-color: #009999;
+	color: white;
+	transition: 0.2s
 }
 
 

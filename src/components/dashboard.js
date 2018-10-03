@@ -15,6 +15,10 @@ import './dashboard.css'
 
 export class Dashboard extends React.Component {
 
+  state = {
+    loading: true
+  }
+
   componentDidMount() {
     this.props.dispatch(clearSearchItems())
     this.props.dispatch(clearRecipeId())
@@ -31,7 +35,7 @@ export class Dashboard extends React.Component {
 
     return (
       <div className="dashboard" >
-        <h1 className="dashboard-header">{this.props.name}s Kitchen</h1>
+        <h1 className="dashboard-header">{this.props.name}'s Kitchen</h1>
         <Kitchen />
       </div>
     )

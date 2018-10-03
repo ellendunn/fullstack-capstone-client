@@ -14,7 +14,7 @@
 }
 
 .recipe-result {
-  background-color:  #c6ecc6;
+  background-color: #c6ecc6;
   border-radius: 5px;
   display: inline-block;
   text-align: center;
@@ -23,6 +23,11 @@
   width: 45%;
   height: 360px;
   vertical-align: top;
+}
+
+.recipe-result:hover {
+  background-color: #009999;
+  transition: 0.2s
 }
 
 .recipes-list {

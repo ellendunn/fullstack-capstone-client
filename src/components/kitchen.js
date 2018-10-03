@@ -11,8 +11,7 @@ import './kitchen.css'
 
 export class Kitchen extends React.Component {
   state = {
-    submitted: false,
-    // loading: false
+    submitted: false
   }
 
 
@@ -34,16 +33,28 @@ export class Kitchen extends React.Component {
     }
 
     const searchTerms = () => {
-      if (this.props.searchItems.length === 0) {
-        return <p>You have not selected any ingredients</p>
-      } else {
+      if (this.props.searchItems.length) {
         return this.props.searchItems.map((item, index) => (
           <li key={index} className="search-term">
             {item}
           </li>
-      ))
+        ))
+      }
     }
-  }
+
+    const searchButton = () => {
+      if(this.props.searchItems.length) {
+        return (
+          <button
+              onClick={() => this.submitSearch(this.props.searchItems)}
+              type="submit"
+              className="recipe-search-button">
+              What can I cook with these ingredients?
+          </button>
+        )
+      }
+    }
+
 
     return (
       <div className="kitchen">
@@ -54,12 +65,7 @@ export class Kitchen extends React.Component {
               {searchTerms()}
             </ul>
           </div>
-          <button
-          onClick={() => this.submitSearch(this.props.searchItems)}
-          type="submit"
-          className="recipe-search-button">
-          What can I cook with these ingredients?
-          </button>
+        {searchButton()}
         </div>
         <div className="containers">
           <FoodContainer name="Fridge" items={this.props.fridge}/>

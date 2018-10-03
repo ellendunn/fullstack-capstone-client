@@ -1,9 +1,11 @@
 .kitchen {
-
+  /* border: 1px black solid; */
 }
 .search-term {
   display: inline-block;
-  background-color: #9fdf9f;
+  background-color: #009999;
+  color: white;
+  border-radius: 5px;
   margin: 5px 5px;
   padding: 5px 10px
 }
@@ -24,9 +26,10 @@
 }
 
 .recipe-search-info {
-  padding: 30px 10px 10px;
-  margin: 10px 0px;
-  background: #fff6e6;
-  /* background: url('../cocina.gif') repeat; */
+  padding: 20px 10px 0px;
+  /* margin: 10px 0px; */
+  /* border: 1px black solid; */
+  /* background: #fff6e6; */
+
   border-radius: 5px
 }

@@ -10,12 +10,11 @@ import {
 
 import {FETCH_REQUEST} from '../actions/utils'
 
-
 const initialState = {
   fridge: [],
   pantry: [],
   searchItems: [],
-  loading: false
+  loading: true
 }
 
 export default function reducer(state=initialState, action) {

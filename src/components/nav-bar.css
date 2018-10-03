@@ -39,6 +39,10 @@
 	padding: 10px;
 }
 
+.home-button:hover{
+	color: #009999;
+}
+
 .title {
 	font-family: 'Bungee Shade', cursive;
 	padding: 0px
