@@ -6,7 +6,6 @@ import swal from 'sweetalert';
 import RequiresLogin from './requires-login';
 import {
   searchRecipesByIngredients,
-  searchRecipesSuccess,
   selectRecipe,
   clearRecipeId
 } from '../actions/recipes-api';
@@ -15,25 +14,26 @@ import Loading from './loading'
 import './recipes-results-page.css'
 
 export class RecipesResultsPage extends React.Component {
+ state = {
+   localLoading: true,
+ }
 
   componentDidMount() {
     if (this.props.selected) {
       this.props.dispatch(clearRecipeId())  //removes "back to recipes button"
     }
     this.props.dispatch(searchRecipesByIngredients(this.props.searchItems))
-
+      .then(() => this.setState({localLoading: false}))
   }
-
-  // componentDidUnmount() {
-  //   console.log('unmounted recies')
-  // }
-
 
   onClick(recipe) {
     this.props.dispatch(selectRecipe(recipe.id))
   }
 
   render() {
+    if (this.state.localLoading) {
+      return <Loading />
+    }
 
     if (!this.props.recipes.length) {
       swal({
@@ -48,22 +48,15 @@ export class RecipesResultsPage extends React.Component {
       return <Redirect to="/recipes/info" />
     }
 
-    if (this.props.loading) {
-      return <Loading />
-    }
-
-
     const recipes = this.props.recipes.map((recipe, index) => (
-      <li key={recipe.id} className="recipe-result">
+      <li
+        key={recipe.id}
+        className="recipe-result"
+        onClick={() => this.onClick(recipe)}
+      >
         <h2 className="recipe-title">{recipe.title}</h2>
         <div className="recipe-info">
           <p>Uses {recipe.usedIngredientCount} of your ingredients</p>
-          <button
-            onClick={() => this.onClick(recipe)}
-            className="select-recipe-button"
-          >
-            Cook This!
-          </button>
         </div>
         <img src={recipe.image} alt={recipe.title} />
       </li>

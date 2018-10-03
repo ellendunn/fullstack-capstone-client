@@ -10,9 +10,6 @@ export const searchRecipesSuccess = (recipes) => ({
   recipes
 })
 
-// export const SEARCH_RECIPES_ERROR = 'SEARCH_RECIPES_ERROR'
-
-
 export const searchRecipesByIngredients = (ingredients) => dispatch => {
   dispatch(fetchRequest())
   const authToken = loadAuthToken()

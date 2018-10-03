@@ -14,7 +14,7 @@ export class NewItemForm extends React.Component{
     const [key] = Object.entries(item)
     const container = key[0];
     const newItem = key[1];
-    return this.props.dispatch(addFoodToContainer(container, newItem))
+    return this.props.dispatch(addFoodToContainer(newItem, container))
   }
 
   render() {
