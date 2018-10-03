@@ -4,7 +4,6 @@ import {clearAuth} from '../actions/auth'
 import {Link} from 'react-router-dom';
 import {clearAuthToken} from '../local-storage'
 import {clearUserData} from '../actions/app'
-import {clearRecipeId} from '../actions/recipes-api'
 
 import './nav-bar.css'
 

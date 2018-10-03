@@ -30,7 +30,3 @@ export default class Input extends React.Component {
   }
 
 }
-
-
-// value={this.props.value}
-// onChange={e => {}}

@@ -13,7 +13,7 @@ export const addFoodSuccess= (foodItem) => ({
   foodItem
 });
 
-export const addFoodToContainer = (oldContainer, food) => dispatch => {
+export const addFoodToContainer = (food, oldContainer) => dispatch => {
   const authToken = loadAuthToken();
   const container = oldContainer.toLowerCase();
   return fetch(`${API_BASE_URL}/food-items`, {

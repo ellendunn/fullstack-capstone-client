@@ -1,7 +1,9 @@
+.kitchen {
 
+}
 .search-term {
   display: inline-block;
-  background-color: green;
+  background-color: #9fdf9f;
   margin: 5px 5px;
   padding: 5px 10px
 }
@@ -22,9 +24,9 @@
 }
 
 .recipe-search-info {
-  padding-top: 20px;
-  padding: 10px;
+  padding: 30px 10px 10px;
   margin: 10px 0px;
   background: #fff6e6;
+  /* background: url('../cocina.gif') repeat; */
   border-radius: 5px
 }
