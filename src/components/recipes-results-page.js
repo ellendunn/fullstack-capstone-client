@@ -22,8 +22,12 @@ export class RecipesResultsPage extends React.Component {
     if (this.props.selected) {
       this.props.dispatch(clearRecipeId())  //removes "back to recipes button"
     }
+    console.log(this.props.searchItems)
     this.props.dispatch(searchRecipesByIngredients(this.props.searchItems))
-      .then(() => this.setState({localLoading: false}))
+      .then((res) => {
+        console.log(res)
+        this.setState({localLoading: false})
+      })
   }
 
   onClick(recipe) {
