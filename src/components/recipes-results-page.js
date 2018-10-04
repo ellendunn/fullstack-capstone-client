@@ -63,7 +63,6 @@ export class RecipesResultsPage extends React.Component {
     ))
 
     const searchIngredients = this.props.searchItems.join(', ')
-    console.log(searchIngredients)
 
     return (
       <div className="recipes">

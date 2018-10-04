@@ -5,7 +5,6 @@ import Input from '../input'
 
 describe('<Input />', () => {
   let meta;
-
   it('Renders without crashing', () => {
     shallow(<Input meta={meta}/>)
   })

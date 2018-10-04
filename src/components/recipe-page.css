@@ -41,15 +41,20 @@
   border-radius: 5px;
 }
 
+.instructions h3 {
+  text-shadow: 0 1px 0 black;
+}
+
 .instructions {
   padding: 15px;
   margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
   width: 92%;
-  background-color: #009999;
+  background-color: #006666;
   color: white;
-  border: 2px #009999 solid;
+  border: 2px #006666 solid;
+  text-shadow: 0 1px 0 black;
   border-radius: 5px;
 }
 

@@ -33,18 +33,23 @@ export class NavBar extends React.Component {
       )
     }
 
+    const homeButton = (
+      <Link
+        to="/dashboard"
+        style={{ textDecoration: 'none' }}
+        className="home-button clearfix"
+      >
+        <h1 className="title">KitchenSmart</h1>
+      </Link>
+    )
+
     return(
       <nav className="nav-bar">
-        <Link
-          to="/dashboard"
-          style={{ textDecoration: 'none' }}
-          className="home-button clearfix"
-        >
-          <h1 className="title">KitchenSmart</h1>
-        </Link>
+
         <div className="nav-buttons">
-          {backButton}
+          {homeButton}
           {button}
+          {backButton}
         </div>
       </nav>
     )

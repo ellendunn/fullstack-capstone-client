@@ -16,7 +16,6 @@ export class Kitchen extends React.Component {
 
 
   submitSearch(items) {
-    console.log(items)
     if (items.length) {
       this.setState(state => ({submitted: true}));
     } else {

@@ -1,8 +1,3 @@
-.nav-bar * {
-	/* border: 1px black solid */
-
-}
-
 .nav-bar {
 	background-color: #e24e42;
 	text-align: left;
@@ -12,12 +7,7 @@
   right: 0;
   z-index: 10;
   font-size: 14px;
-	height: 100px
-}
-
-.nav-buttons, .home-button {
-	display: inline-flex;
-	margin-top: 20px;
+	height: 110px
 }
 
 .nav-bar button {
@@ -25,18 +15,29 @@
 }
 
 .nav-buttons {
-	float: right;
-	padding: 10px;
-	margin-top: 20px;
-	margin-right: 10px;
+	padding-top: 10px;
+	vertical-align: bottom;
+	width: 100%;
+	float: left;
+	display: inline-block;
+}
+
+.home-button, .to-recipes-button, .logout-button{
+	display: inline-flex;
 }
 
 .home-button {
 	color: white;
 	font-size: 26px;
 	display: inline-flex;
-	margin: 20px 0px 10px 10px;
+	margin: 20px 0px 20px 10px;
 	padding: 10px;
+	float:left;
+}
+
+.to-recipes-button, .logout-button {
+	float: right;
+	height: 40px;
 }
 
 .home-button:hover{
@@ -54,7 +55,7 @@
 
 @media only screen and (max-width: 530px) {
 	.home-button {
-		font-size: 16px;
+		font-size: 12px;
 		padding-top: 20px;
 	}
 
@@ -81,12 +82,8 @@ and (max-device-width : 768px) {
 	}
 
 	.logout-button, .to-recipes-button {
-		font-size: 12px;
-		padding: 5px
-	}
-
-	.nav-bar {
-		padding: 5px
+		font-size: 10px;
+		height: 30px;
 	}
 
 

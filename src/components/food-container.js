@@ -14,8 +14,6 @@ import './food-container.css'
 export class FoodContainer extends React.Component {
 
   render() {
-    console.log(this.props.items)
-
     const items = this.props.items.map((item, index) => (
         <li key={item.id} >
           <FoodItem food={item.food} foodItem={item} />

@@ -17,6 +17,11 @@ describe('appReducer', () => {
     container: 'fridge'
   }
 
+  const foodItemTwo = {
+    food: 'chicken',
+    container: 'fridge'
+  }
+
   const foodItems = {
     fooditems: [
       {food: 'broccoli', container: 'fridge' },
@@ -25,7 +30,7 @@ describe('appReducer', () => {
   }
 
   const fridge = [
-    'tomato', 'chicken'
+    foodItem, foodItemTwo
   ]
   const pantry = [
     'garlic', 'walnuts'
@@ -76,16 +81,6 @@ describe('appReducer', () => {
     })
   })
 
-  // describe('deleteFoodSuccess', () => {
-  //   it('should delete food from container', () => {
-  //     let state = {
-  //       fridge
-  //     };
-  //     state = reducer(state, deleteFoodSuccess({food: {foodItem}}))
-  //     expect(state.fridge).toEqual([fridge[1]])
-  //   })
-  // })
-
   describe('addItemToSearch', () => {
     it('should add selected food to search terms', () => {
       let state;
@@ -104,8 +99,28 @@ describe('appReducer', () => {
     })
   })
 
-    // removeItemFromSearch,
-    // clearUserData,
-    // clearSearchItems
+  describe('clearUserData', () => {
+    it('should remove all user data from state', () => {
+      let state = {
+        fridge: [1, 2, 3],
+        pantry: [4, 5, 6],
+        searchItems: [7, 8, 9]
+      }
+      state = reducer(state, clearUserData());
+      expect(state.fridge).toEqual([])
+      expect(state.pantry).toEqual([])
+      expect(state.searchItems).toEqual([])
+    })
+  })
+
+  describe('clearSearchItems', () => {
+    it('should remove search terms from state', () => {
+      let state = {
+        searchItems: [1, 2, 3]
+      }
+      state = reducer(state, clearSearchItems());
+      expect(state.searchItems).toEqual([])
+    })
+  })
 
 })

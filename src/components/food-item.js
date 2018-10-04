@@ -18,7 +18,6 @@ export class FoodItem extends React.Component {
   }
 
   handleClick(foodItem) {
-    console.log()
     this.setState(state => ({
       isSelected: !state.isSelected
     }), () => {

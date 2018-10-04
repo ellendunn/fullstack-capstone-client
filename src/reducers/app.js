@@ -14,7 +14,7 @@ const initialState = {
   fridge: [],
   pantry: [],
   searchItems: [],
-  loading: true
+  loading: false
 }
 
 export default function reducer(state=initialState, action) {
@@ -39,7 +39,6 @@ export default function reducer(state=initialState, action) {
     }
 
     else if (action.type === DELETE_FOOD_SUCCESS) {
-      console.log(action)
       const container = action.food.container
       return Object.assign({}, state, {
         [container]: [...state[container].filter((e) => e !== action.food) ]
