@@ -26,7 +26,6 @@ export class NavBar extends React.Component {
 
     if (this.props.selected) {
       backButton = (
-        //add onCLick function here??
         <Link to="/recipes" >
           <button className="to-recipes-button">Back To Recipes</button>
         </Link >

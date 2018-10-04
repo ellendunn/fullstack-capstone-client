@@ -10,8 +10,6 @@
   padding: 10px
 }
 
-
-
 .ingredient {
   text-align: left;
   padding: 5px;
@@ -80,9 +78,6 @@ a {
     margin-right: auto;
   }
 
-  /* .ingredients ul, .ingredients h3 {
-    padding: 10px 20px;
-  } */
 }
 
 /* Smartphones (portrait and landscape) ----------- */
@@ -102,22 +97,4 @@ and (max-device-width : 768px) {
     margin-left: auto;
     margin-right: auto;
   }
-/*
-  .ingredients ul, .ingredients h3 {
-    padding: 10px 20px;
-  } */
-}
-
-/* iPads (landscape) ----------- */
-@media only screen and (min-device-width : 768px) and
-(max-device-width : 1024px) and (orientation : landscape) {
-/* Styles */
-
-}
-
-/* iPads (portrait) ----------- */
-@media only screen and (min-device-width : 768px) and
-(max-device-width : 1024px) and (orientation : portrait) {
-/* Styles */
-
 }

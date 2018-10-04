@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {
   fetchFoodItems,
   clearSearchItems
-  // fetchFoodItemsSuccess
 } from '../actions/app'
 import {clearRecipeId} from '../actions/recipes-api'
 import RequiresLogin from './requires-login';

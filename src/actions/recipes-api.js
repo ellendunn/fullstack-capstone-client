@@ -50,7 +50,6 @@ export const fetchRecipeById = (id) => dispatch => {
         Authorization: `Bearer ${authToken}`,
         'Content-Type': 'application/json'
       }
-      // body: JSON.stringify({ id })
     })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())

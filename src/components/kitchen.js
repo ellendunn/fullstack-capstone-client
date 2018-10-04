@@ -3,9 +3,7 @@ import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom';
 import swal from 'sweetalert';
 
-
 import FoodContainer from './food-container';
-// import {searchRecipesByIngredients} from '../actions/recipes-api'
 
 import './kitchen.css'
 

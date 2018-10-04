@@ -1,12 +1,7 @@
 import React from 'react';
-// import {
-//   deleteFoodFromContainer,
-//   addItemToSearch,
-//   removeItemFromSearch
-// } from '../actions/app';
+
 import {connect} from 'react-redux';
 import NewItemForm from './new-item-form';
-// import SelectButton from './select-button.js'
 import FoodItem from './food-item'
 
 import './food-container.css'

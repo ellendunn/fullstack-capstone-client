@@ -43,7 +43,6 @@ describe('<Dashboard />', () => {
     const dispatch = jest.fn();
     shallow(<Dashboard dispatch={dispatch} fridge={[]} pantry={[]}/>)
     expect(localStorage.getItem).toBeCalledWith('authToken')
-    // expect(dispatch).toHaveBeenCalledWith(mockFetchFoodItemsActions[0][0], mockFetchFoodItemsActions[1][1])
   })
 
 
