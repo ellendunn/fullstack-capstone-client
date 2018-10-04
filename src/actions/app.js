@@ -13,6 +13,7 @@ export const addFoodSuccess= (foodItem) => ({
   foodItem
 });
 
+
 export const addFoodToContainer = (food, oldContainer) => dispatch => {
   const authToken = loadAuthToken();
   const container = oldContainer.toLowerCase();
