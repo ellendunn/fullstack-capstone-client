@@ -10,10 +10,10 @@ export const isTrimmed = value =>
 
 export const length = length => value => {
   if (length.min && value.length<length.min) {
-    return 'Must be at least {length.min} characters long'
+    return `Must be at least ${length.min} characters long`
   }
   if (length.max && value.length>length.max) {
-    return 'Cannot exceed {length.max} characters'
+    return `Cannot exceed ${length.max} characters`
   }
 }
 
