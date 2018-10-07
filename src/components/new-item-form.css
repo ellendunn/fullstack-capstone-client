@@ -10,10 +10,12 @@
 }
 
 .form-input {
-  padding: 10px;
+  padding: 10px 0px 15px;
+  /* border: 1px white solid */
 }
 
 input {
   padding: 10px;
-
+  width: 250px;
+  max-width: 85%;
 }
