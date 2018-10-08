@@ -27,6 +27,7 @@
 
 .recipe-result:hover {
   background-color:  #008080;
+  color: white;
   transition: 0.2s
 }
 
