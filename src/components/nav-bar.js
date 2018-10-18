@@ -47,8 +47,10 @@ export class NavBar extends React.Component {
 
         <div className="nav-buttons">
           {homeButton}
-          {button}
-          {backButton}
+          <div className='stack-buttons'>
+            {button}
+            {backButton}
+          </div>
         </div>
       </nav>
     )

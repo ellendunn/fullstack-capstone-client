@@ -11,15 +11,18 @@
 }
 
 .nav-bar button {
-	margin: 10px;
+	margin: 0px 10px 10px 10px;
 }
 
 .nav-buttons {
 	padding-top: 10px;
 	vertical-align: bottom;
 	width: 100%;
-	float: left;
-	display: inline-block;
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .home-button, .to-recipes-button, .logout-button{
@@ -30,8 +33,8 @@
 	color: white;
 	font-size: 26px;
 	display: inline-flex;
-	margin: 20px 0px 20px 10px;
-	padding: 10px;
+	margin: 0px 0px 20px 10px;
+	padding: 0px;
 	float:left;
 }
 
@@ -81,9 +84,26 @@ and (max-device-width : 768px) {
 		padding-top: 20px;
 	}
 
+	.nav-buttons {
+		justify-content: space-around
+	}
+
+	.nav-bar {
+		width: 100vw;
+	}
+
+	.stack-buttons{
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	}
+
 	.logout-button, .to-recipes-button {
 		font-size: 10px;
-		height: 30px;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 

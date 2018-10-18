@@ -15,7 +15,7 @@ import './dashboard.css'
 export class Dashboard extends React.Component {
 
   state = {
-    loading: true
+    loading: false
   }
 
   componentDidMount() {
@@ -28,7 +28,7 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    if (this.props.loading && (!this.props.fridge.length || !this.props.pantry.length)) {
+    if (this.props.loading && (!this.props.fridge.length && !this.props.pantry.length)) {
       return <Loading />
     }
 

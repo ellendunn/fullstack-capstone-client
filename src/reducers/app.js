@@ -26,6 +26,7 @@ export default function reducer(state=initialState, action) {
     }
 
     else if (action.type === FETCH_FOOD_ITEMS_SUCCESS) {
+
       const {fooditems} = action.foodItems
       const fridgeItems = fooditems
             .filter(obj => obj.container === "fridge")

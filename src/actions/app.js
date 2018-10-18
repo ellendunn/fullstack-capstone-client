@@ -52,11 +52,17 @@ export const fetchFoodItems = () => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(foods => dispatch(fetchFoodItemsSuccess(foods)))
+  .then(foods => {
+    if(!foods.fooditems.length) {
+      swal({
+        title: 'Your Kitchen is empty!',
+        text:'Begin by adding foods to your Fridge and Pantry'
+      })
+    }
+    dispatch(fetchFoodItemsSuccess(foods))
+  })
   .catch(err => {
-    swal({
-      title: 'Your Kitchen is empty! Begin by adding foods to your Fridge and Pantry'
-    })
+
   })
 }
 
